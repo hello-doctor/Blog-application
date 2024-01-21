@@ -21,13 +21,13 @@ class Profile(models.Model):
   
 class Post(models.Model):
   id= models.UUIDField(primary_key=True , default = uuid.uuid4)
-  username = models.ForeignKey(User, on_delete=models.CASCADE)
-  user= models.CharField(max_length=100)
-  title= models.TextField(max_length=500)
-  body= models.TextField(max_length=1000)
+ 
+  user= models.CharField(max_length=100,blank = True)
+  title= models.TextField(max_length=500,blank = True)
+  body= models.TextField(max_length=1000,blank = True)
   created_at=models.DateTimeField(default = datetime.now )
   no_of_likes=models.IntegerField(default=0)
 
   def __str__(self):
-    return self.username
+    return self.user
 

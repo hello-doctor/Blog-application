@@ -82,9 +82,7 @@ def upload(request):
   if request.method=='POST':
     mycontent=request.POST['content']
     user_id=request.user.id
-    profile=Profile.objects.get(id_user=user_id)
-    username=profile.user
-    new_post=Post.objects.create(user=user_id,username=username,title="lol",body=mycontent)
+    new_post=Post.objects.create(user=user_id,title="New user",body=mycontent)
     new_post.save()
 
   return redirect('index')
